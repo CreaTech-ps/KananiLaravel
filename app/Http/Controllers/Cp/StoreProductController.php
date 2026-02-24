@@ -54,9 +54,14 @@ class StoreProductController extends Controller
     {
         $validated = $this->validateProduct($request);
 
-        if ($request->hasFile('image')) {
-            $validated['image_path'] = $request->file('image')->store('store/products', 'public');
+        $imagePaths = $this->handleProductImages($request);
+        if (empty($imagePaths)) {
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                'images_new' => ['يجب إضافة صورة واحدة على الأقل للمنتج.'],
+            ]);
         }
+        $validated['images'] = $imagePaths;
+        $validated['image_path'] = $imagePaths[0];
 
         $validated['slug_ar'] = ($validated['slug_ar'] ?? null) ?: Str::slug($validated['name_ar']);
         $validated['slug_en'] = ($validated['slug_en'] ?? null) ?: Str::slug($validated['name_en'] ?? $validated['name_ar']);
@@ -87,12 +92,21 @@ class StoreProductController extends Controller
     {
         $validated = $this->validateProduct($request, $product);
 
-        if ($request->hasFile('image')) {
-            if ($product->image_path) {
-                Storage::disk('public')->delete($product->image_path);
-            }
-            $validated['image_path'] = $request->file('image')->store('store/products', 'public');
+        $imagePaths = $this->handleProductImages($request, $product);
+        if (empty($imagePaths)) {
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                'images_new' => ['يجب أن يحتوي المنتج على صورة واحدة على الأقل.'],
+            ]);
         }
+        // حذف الصور القديمة التي لم تعد مستخدمة
+            $oldPaths = $product->image_paths ?? [];
+            foreach ($oldPaths as $old) {
+                if (!in_array($old, $imagePaths, true)) {
+                    Storage::disk('public')->delete($old);
+                }
+            }
+        $validated['images'] = $imagePaths;
+        $validated['image_path'] = $imagePaths[0] ?? null;
 
         $validated['slug_ar'] = ($validated['slug_ar'] ?? null) ?: Str::slug($validated['name_ar']);
         $validated['slug_en'] = ($validated['slug_en'] ?? null) ?: Str::slug($validated['name_en'] ?? $validated['name_ar']);
@@ -107,8 +121,8 @@ class StoreProductController extends Controller
 
     public function destroy(Request $request, StoreProduct $product)
     {
-        if ($product->image_path) {
-            Storage::disk('public')->delete($product->image_path);
+        foreach ($product->image_paths as $path) {
+            Storage::disk('public')->delete($path);
         }
         $product->delete();
 
@@ -131,7 +145,8 @@ class StoreProductController extends Controller
             'price' => ['required', 'numeric', 'min:0'],
             'old_price' => ['nullable', 'numeric', 'min:0'],
             'discount_percent' => ['nullable', 'integer', 'min:0', 'max:100'],
-            'image' => ['nullable', 'image', 'max:2048'],
+            'images_new' => ['nullable', 'array'],
+            'images_new.*' => ['image', 'max:2048'],
             'stock' => ['nullable', 'integer', 'min:0'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
             'is_active' => ['nullable', 'boolean'],
@@ -142,6 +157,16 @@ class StoreProductController extends Controller
         ];
 
         $validated = $request->validate($rules);
+
+        $imagesKeep = $request->input('images_keep', []);
+        $imagesNewCount = $request->hasFile('images_new') ? count(array_filter($request->file('images_new'))) : 0;
+        $totalImages = (is_array($imagesKeep) ? count($imagesKeep) : 0) + $imagesNewCount;
+        if ($totalImages > 4) {
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                'images_new' => ['الحد الأقصى 4 صور للمنتج.'],
+            ]);
+        }
+
         $validated['is_active'] = $request->boolean('is_active');
         $validated['stock'] = (int) ($request->stock ?? 0);
         $validated['sort_order'] = (int) ($request->sort_order ?? 0);
@@ -162,6 +187,35 @@ class StoreProductController extends Controller
         }
 
         return $validated;
+    }
+
+    private function handleProductImages(Request $request, ?StoreProduct $product = null): ?array
+    {
+        $existing = $request->input('images_keep', []);
+        if (!is_array($existing)) {
+            $existing = [];
+        }
+
+        $newPaths = [];
+        $maxNew = 4 - count($existing);
+        if ($maxNew > 0 && $request->hasFile('images_new')) {
+            $files = array_slice(array_filter($request->file('images_new')), 0, $maxNew);
+            foreach ($files as $file) {
+                if ($file && $file->isValid()) {
+                    $newPaths[] = $file->store('store/products', 'public');
+                }
+            }
+        }
+
+        $allPaths = array_values(array_merge($existing, $newPaths));
+        $allPaths = array_unique($allPaths);
+        $allPaths = array_slice($allPaths, 0, 4);
+
+        if (empty($allPaths)) {
+            return $product ? [] : null;
+        }
+
+        return $allPaths;
     }
 
     private function syncSizes(StoreProduct $product, Request $request): void

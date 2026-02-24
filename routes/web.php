@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Website\StoreController;
 use App\Http\Controllers\Website\CartController;
+use App\Http\Controllers\Cp\DashboardController;
 use App\Http\Controllers\Cp\StoreOrderController;
 use App\Http\Controllers\Cp\StoreProductController;
 use App\Http\Controllers\Cp\StoreCategoryController;
@@ -40,8 +41,9 @@ Route::get('/cart/count', [CartController::class, 'count'])->name('store.cart.co
 Route::get('/cart/items', [CartController::class, 'items'])->name('store.cart.items');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('store.cart.remove');
 
-// لوحة التحكم — منتجات المتجر
+// لوحة التحكم
 Route::prefix('cp')->name('cp.')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('store/products', StoreProductController::class)->parameters(['store/products' => 'store_product'])->names('store.products');
     Route::resource('store/categories', StoreCategoryController::class)->except(['create', 'edit', 'show'])->parameters(['store/categories' => 'store_category'])->names('store.categories');
     Route::get('store/orders', [StoreOrderController::class, 'index'])->name('store.orders.index');

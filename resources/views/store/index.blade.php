@@ -52,6 +52,39 @@
         </div>
     </div>
 </div>
+@push('styles')
+<style>
+/* شريط تمرير جانبي — لون ناعم، حركة انسيابية */
+.store-sidebar-categories {
+    scroll-behavior: smooth;
+    padding-inline-end: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(150, 25, 74, 0.35) transparent;
+}
+.store-sidebar-categories::-webkit-scrollbar {
+    width: 6px;
+}
+.store-sidebar-categories::-webkit-scrollbar-track {
+    background: transparent;
+}
+.store-sidebar-categories::-webkit-scrollbar-thumb {
+    background: rgba(150, 25, 74, 0.3);
+    border-radius: 3px;
+}
+.store-sidebar-categories::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 25, 74, 0.5);
+}
+.dark .store-sidebar-categories {
+    scrollbar-color: rgba(150, 25, 74, 0.4) transparent;
+}
+.dark .store-sidebar-categories::-webkit-scrollbar-thumb {
+    background: rgba(150, 25, 74, 0.35);
+}
+.dark .store-sidebar-categories::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 25, 74, 0.55);
+}
+</style>
+@endpush
 @push('scripts')
 <script src="{{ asset('js/store-filter.js') }}"></script>
 @endpush

@@ -112,31 +112,37 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
-                    <label class="cp-label block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">صورة المنتج</label>
-                    <div id="image-drop-zone" class="cp-image-preview-area rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 p-4 flex flex-col items-center justify-center gap-3 transition-colors hover:border-primary/50">
-                        @if($item->image_path ?? null)
-                            <div id="current-image-wrap">
-                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">الصورة الحالية</p>
-                                <img id="current-image" src="{{ asset('storage/' . $item->image_path) }}" alt="" class="max-h-44 w-auto max-w-full object-contain rounded-xl shadow border border-slate-200 dark:border-slate-600" />
+                    <label class="cp-label block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">صور المنتج (1–4 صور)</label>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">يجب إضافة صورة واحدة على الأقل، بحد أقصى 4 صور.</p>
+                    <div id="product-images-container" class="space-y-3">
+                        {{-- الصور الحالية --}}
+                        @php $existingImages = $item->image_paths ?? []; @endphp
+                        @foreach($existingImages as $idx => $path)
+                            <div class="product-image-row flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600">
+                                <input type="hidden" name="images_keep[]" value="{{ $path }}" />
+                                <img src="{{ asset('storage/' . $path) }}" alt="" class="w-16 h-16 object-cover rounded-lg shrink-0" />
+                                <span class="text-sm text-slate-600 dark:text-slate-300 flex-1">صورة {{ $idx + 1 }}</span>
+                                <button type="button" class="btn-remove-image p-2 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/30 text-slate-500 hover:text-red-600" title="حذف">
+                                    <span class="material-symbols-outlined text-lg">delete</span>
+                                </button>
                             </div>
-                            <div id="new-image-preview" class="hidden">
-                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">معاينة الصورة الجديدة</p>
-                                <img id="new-image-preview-img" src="" alt="" class="max-h-44 w-auto max-w-full object-contain rounded-xl shadow" />
+                        @endforeach
+                        {{-- مساحة رفع صور جديدة --}}
+                        @if(count($existingImages) < 4)
+                            <div id="new-images-wrap" class="space-y-2">
+                                <input type="file" name="images_new[]" accept="image/*" multiple class="product-images-input cp-input w-full rounded-xl border border-slate-300 dark:border-slate-600 file:mr-4 file:py-2 file:rounded-lg file:border-0 file:bg-primary/10 file:text-primary text-sm" />
                             </div>
-                            <div id="no-image-placeholder" class="hidden"></div>
-                        @else
-                            <div id="current-image-wrap" class="hidden"></div>
-                            <div id="new-image-preview" class="hidden">
-                                <img id="new-image-preview-img" src="" alt="" class="max-h-44 w-auto max-w-full object-contain rounded-xl shadow" />
-                            </div>
-                            <div id="no-image-placeholder" class="text-center text-slate-400 dark:text-slate-500">
-                                <span class="material-symbols-outlined text-5xl mb-2 block">add_photo_alternate</span>
-                                <span class="text-sm">اسحب الصورة هنا أو اختر ملفاً</span>
-                            </div>
+                            <div id="new-images-preview" class="flex flex-wrap gap-3"></div>
+                            <p id="images-count-hint" class="text-xs text-slate-500 dark:text-slate-400">
+                                @if(count($existingImages) === 0)
+                                    يلزم إضافة من 1 إلى 4 صور
+                                @else
+                                    المتبقي: يمكن إضافة حتى {{ 4 - count($existingImages) }} صورة إضافية
+                                @endif
+                            </p>
                         @endif
-                        <input type="file" name="image" id="image" accept="image/*" class="cp-input w-full max-w-xs rounded-xl border border-slate-300 dark:border-slate-600 file:mr-4 file:py-2 file:rounded-lg file:border-0 file:bg-primary/10 file:text-primary text-sm" />
                     </div>
-                    @error('image')
+                    @error('images_new')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
                 </div>
@@ -200,43 +206,62 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // معاينة الصورة
-    var imageInput = document.getElementById('image');
-    var currentWrap = document.getElementById('current-image-wrap');
-    var newPreview = document.getElementById('new-image-preview');
-    var newPreviewImg = document.getElementById('new-image-preview-img');
-    var noPlaceholder = document.getElementById('no-image-placeholder');
+    // صور المنتج (1–4)
+    var container = document.getElementById('product-images-container');
+    var newPreview = document.getElementById('new-images-preview');
+    var newInput = document.querySelector('.product-images-input');
+    var hint = document.getElementById('images-count-hint');
+    var maxImages = 4;
 
-    function showNewPreview(file) {
-        if (!file || !file.type.startsWith('image/')) return;
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            if (newPreviewImg) newPreviewImg.src = e.target.result;
-            if (newPreview) { newPreview.classList.remove('hidden'); newPreview.querySelector('p') && newPreview.querySelector('p').classList.remove('hidden'); }
-            if (currentWrap) currentWrap.classList.add('hidden');
-            if (noPlaceholder) noPlaceholder.classList.add('hidden');
-        };
-        reader.readAsDataURL(file);
+    function countKept() {
+        return (container?.querySelectorAll('input[name="images_keep[]"]')?.length ?? 0);
+    }
+    function countNewPreviews() {
+        return (newPreview?.querySelectorAll('.new-img-preview')?.length ?? 0);
+    }
+    function totalImages() {
+        return countKept() + (newInput?.files?.length ?? 0);
     }
 
-    imageInput?.addEventListener('change', function() { showNewPreview(this.files[0]); });
+    function updateHint() {
+        if (!hint) return;
+        var kept = countKept();
+        var newCount = newInput?.files?.length ?? 0;
+        var total = kept + newCount;
+        var remaining = Math.max(0, maxImages - total);
+        hint.textContent = 'المجموع: ' + total + ' من 4 — يمكن إضافة حتى ' + remaining + ' صورة إضافية';
+    }
 
-    var dropZone = document.getElementById('image-drop-zone');
-    if (dropZone) {
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(function(ev) {
-            dropZone.addEventListener(ev, function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (ev === 'drop') {
-                    var file = e.dataTransfer.files[0];
-                    if (file && file.type.startsWith('image/')) {
-                        imageInput.files = e.dataTransfer.files;
-                        showNewPreview(file);
-                    }
-                }
-            });
+    container?.addEventListener('click', function(e) {
+        var btn = e.target.closest('.btn-remove-image');
+        if (!btn) return;
+        var row = btn.closest('.product-image-row');
+        if (row) {
+            row.remove();
+            updateHint();
+        }
+    });
+
+    newInput?.addEventListener('change', function() {
+        if (!newPreview) return;
+        newPreview.innerHTML = '';
+        var files = Array.from(this.files || []);
+        files.slice(0, maxImages - countKept()).forEach(function(file) {
+            if (!file.type.startsWith('image/')) return;
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                var div = document.createElement('div');
+                div.className = 'new-img-preview relative inline-block';
+                div.innerHTML = '<img src="' + ev.target.result + '" class="w-20 h-20 object-cover rounded-lg border border-slate-200 dark:border-slate-600" alt="" />';
+                newPreview.appendChild(div);
+                updateHint();
+            };
+            reader.readAsDataURL(file);
         });
-    }
+        updateHint();
+    });
+
+    if (hint) updateHint();
 
     // المقاسات الديناميكية
     var sizesContainer = document.getElementById('sizes-container');

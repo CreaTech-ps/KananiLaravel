@@ -20,17 +20,28 @@ class StoreProduct extends Model
         'old_price',
         'discount_percent',
         'image_path',
+        'images',
         'stock',
         'sort_order',
         'is_active',
     ];
 
     protected $casts = [
+        'images' => 'array',
         'price' => 'decimal:2',
         'old_price' => 'decimal:2',
         'stock' => 'integer',
         'is_active' => 'boolean',
     ];
+
+    public function getImagePathsAttribute(): array
+    {
+        $images = $this->images;
+        if (is_array($images) && !empty($images)) {
+            return $images;
+        }
+        return $this->image_path ? [$this->image_path] : [];
+    }
 
     public function category()
     {

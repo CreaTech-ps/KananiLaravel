@@ -33,7 +33,7 @@
         <aside id="cp-sidebar" class="cp-sidebar fixed top-0 right-0 z-40 h-full w-64 bg-white dark:bg-slate-800 border-l border-slate-200 dark:border-slate-700 shadow-lg transform transition-transform duration-300 ease-out translate-x-full lg:translate-x-0 lg:static lg:shadow-none" aria-label="القائمة الجانبية">
             <div class="flex flex-col h-full">
                 <div class="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
-                    <a href="{{ route('cp.store.products.index') }}" class="flex items-center gap-2">
+                    <a href="{{ route('cp.dashboard') }}" class="flex items-center gap-2">
                         <img src="{{ asset('assets/img/KANANI-Logo-d.svg') }}" alt="جمعية أصدقاء جامعة بيرزيت" class="h-9 w-auto" />
                     </a>
                     <button type="button" id="cp-sidebar-close" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" aria-label="إغلاق القائمة">
@@ -42,6 +42,12 @@
                 </div>
                 <nav class="flex-1 overflow-y-auto py-4 px-3">
                     <ul class="space-y-0.5">
+                        <li>
+                            <a href="{{ route('cp.dashboard') }}" class="cp-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary transition-colors {{ request()->routeIs('cp.dashboard') ? 'bg-primary/10 text-primary dark:bg-primary/20' : '' }}">
+                                <span class="material-symbols-outlined text-xl">dashboard</span>
+                                <span>الرئيسية</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="{{ route('cp.store.products.index') }}" class="cp-nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary transition-colors {{ request()->routeIs('cp.store.products.*') ? 'bg-primary/10 text-primary dark:bg-primary/20' : '' }}">
                                 <span class="material-symbols-outlined text-xl">shopping_bag</span>
