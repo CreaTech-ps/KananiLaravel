@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اكتب عنوان الصفحة هنا فقط</title>
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>جمعية أصدقاء جامعة بيرزيت - Friends of Birzeit University Association</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+    <script src="script.js" defer></script>
+
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+</head>
+
+<body class="dark:bg-background-dark transition-colors duration-300">
+
+    <main-navbar></main-navbar>
+    <main class="max-w-6xl mx-auto px-8 lg:px-16 py-16 space-y-28">
+        <section class="space-y-10">
+            <div class="max-w-2xl">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">قصة الجمعية</h2>
+                <p class="text-gray-600 dark:text-text-secondary text-lg leading-relaxed">
+                    رحلة من العطاء بدأت بفكرة، ونمت بسواعد المخلصين لتغير حياة الآلاف. نحن نؤمن أن التعليم هو حق للجميع،
+                    ومن هنا انطلقت رؤيتنا لتمكين طلبة جامعة بيرزيت وتوفير الفرص التي يستحقونها.
+                </p>
+            </div>
+            <div
+                class="relative rounded-[32px] overflow-hidden aspect-video bg-black shadow-2xl group border border-gray-200 dark:border-white/5">
+                <img alt="Students working together"
+                    class="w-full h-full object-cover opacity-70 dark:opacity-50 group-hover:scale-105 transition-transform duration-1000"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe_U2g2RKthf6bg7nsaHl03IYlCYNKMqNGc6mYzqwbhjCEaop6Adw_KAL77i-bqGwUaq2iZo8oI37R-keedDS1qWj4h7bjxIrZdeKrAOonw-fiUkxT5GWbNwyPKE_HxW0evyw51IAFgC1t2nL_bMiRoSWStjagBGkBp7wjJkiKok0b17rAx1PwK80YD0e2CesrMvX1Deq34pr5Ke5BtB_PeqFhUVcgzdh1q4qcBWNtXt1Vn3dYkHlNsZUiqxW3wBj31t6gm0WapZQ" />
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <button
+                        class="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-6xl">play_arrow</span>
+                    </button>
+                </div>
+                <div class="absolute bottom-0 inset-x-0 p-8 video-overlay">
+                    <div class="flex items-center gap-6 text-white">
+                        <span class="text-sm font-mono">03:45</span>
+                        <div class="flex-1 h-1.5 bg-white/20 rounded-full relative">
+                            <div class="absolute top-0 right-0 h-full bg-primary rounded-full" style="width: 45%;">
+                            </div>
+                            <div
+                                class="absolute top-1/2 right-[45%] -translate-y-1/2 w-4 h-4 bg-primary border-2 border-white rounded-full shadow-md">
+                            </div>
+                        </div>
+                        <span class="text-sm font-medium">شاهد رحلتنا</span>
+                        <span class="material-symbols-outlined text-xl">hd</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-14">
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-1.5 h-10 bg-primary rounded-full"></div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white">هويتنا وقيمنا</h2>
+                </div>
+                <p class="text-gray-600 dark:text-text-secondary text-lg leading-relaxed">
+                    نحن نؤمن بأن العمل المؤسسي المنظم هو الطريق الأقصر لتحقيق الأثر المستدام.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div onclick="openLightbox('الرؤية', 'أن نكون المنصة الرائدة والأكثر موثوقية في العمل الخيري المستدام وتنمية المجتمع على مستوى المنطقة بحلول عام 2030.', 'visibility')"
+                    class="p-10 rounded-[28px] bg-white dark:bg-card-dark border border-gray-100 dark:border-white/10 hover:border-primary/40 transition-all duration-300 group shadow-sm cursor-pointer hover:-translate-y-2">
+                    <div class="flex items-center gap-5 mb-8">
+                        <div
+                            class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">visibility</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">الرؤية</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-text-secondary leading-loose text-lg">أن نكون المنصة الرائدة
+                        والأكثر موثوقية في العمل الخيري المستدام وتنمية المجتمع على مستوى المنطقة بحلول عام 2030.</p>
+                </div>
+
+                <div onclick="openLightbox('الرسالة', 'تقديم الدعم الشامل للفئات المحتاجة من خلال برامج نوعية ومبتكرة تركز على التمكين الذاتي والكرامة الإنسانية وبناء قدرات الفرد.', 'auto_awesome')"
+                    class="p-10 rounded-[28px] bg-white dark:bg-card-dark border border-gray-100 dark:border-white/10 hover:border-primary/40 transition-all duration-300 group shadow-sm cursor-pointer hover:-translate-y-2">
+                    <div class="flex items-center gap-5 mb-8">
+                        <div
+                            class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">auto_awesome</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">الرسالة</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-text-secondary leading-loose text-lg">تقديم الدعم الشامل للفئات
+                        المحتاجة من خلال برامج نوعية ومبتكرة تركز على التمكين الذاتي والكرامة الإنسانية وبناء قدرات
+                        الفرد.</p>
+                </div>
+
+                <div onclick="openLightbox('القيم', 'تتمثل قيمنا في الشفافية المطلقة، النزاهة في التنفيذ، الابتكار في الحلول، والتميز في تقديم الخدمات الإنسانية لكل محتاج دون تمييز.', 'favorite')"
+                    class="p-10 rounded-[28px] bg-white dark:bg-card-dark border border-gray-100 dark:border-white/10 hover:border-primary/40 transition-all duration-300 group shadow-sm cursor-pointer hover:-translate-y-2">
+                    <div class="flex items-center gap-5 mb-8">
+                        <div
+                            class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">favorite</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">القيم</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-text-secondary leading-loose text-lg">تتمثل قيمنا في الشفافية
+                        المطلقة، النزاهة في التنفيذ، الابتكار في الحلول، والتميز في تقديم الخدمات الإنسانية لكل محتاج
+                        دون تمييز.</p>
+                </div>
+
+                <div onclick="openLightbox('الأهداف', 'نعمل على تمكين الأفراد، تعزيز التكافل الاجتماعي، وبناء مستقبل مشرق للجميع من خلال حلول تقنية وإدارية متطورة وشراكات استراتيجية عمل على تمكين الأفراد، تعزيز التكافل الاجتماعي، وبناء مستقبل مشرق للجميع من خلال حلول تقنية وإدارية متطورة وشراكات استراتيجية عمل على تمكين الأفراد، تعزيز التكافل الاجتماعي، وبناء مستقبل مشرق للجميع من خلال حلول تقنية وإدارية متطورة وشراكات استراتيجية عمل على تمكين الأفراد، تعزيز التكافل الاجتماعي، وبناء مستقبل مشرق للجميع من خلال حلول تقنية وإدارية متطورة وشراكات استراتيجية عمل على تمكين الأفراد، تعزيز التكافل الاجتماعي، وبناء مستقبل مشرق للجميع من خلال حلول تقنية وإدارية متطورة وشراكات استراتيجية عمل على تمكين الأفراد، تعزيز التكافل الاجتماعي، وبناء مستقبل مشرق للجميع من خلال حلول تقنية وإدارية متطورة وشراكات استراتيجية عمل على تمكين الأفراد، تعزيز التكافل الاجتماعي، وبناء مستقبل مشرق للجميع من خلال حلول تقنية وإدارية متطورة وشراكات استراتيجية .', 'flag')"
+                    class="p-10 rounded-[28px] bg-white dark:bg-card-dark border border-gray-100 dark:border-white/10 hover:border-primary/40 transition-all duration-300 group shadow-sm cursor-pointer hover:-translate-y-2">
+                    <div class="flex items-center gap-5 mb-8">
+                        <div
+                            class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <span class="material-symbols-outlined text-3xl">flag</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">الأهداف</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-text-secondary leading-loose text-lg">نعمل على تمكين الأفراد،
+                        تعزيز التكافل الاجتماعي، وبناء مستقبل مشرق للجميع من خلال حلول تقنية وإدارية متطورة وشراكات
+                        استراتيجية.</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="lightbox"
+            class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 backdrop-blur-md transition-all duration-300 opacity-0">
+
+            <div class="bg-white dark:bg-card-dark w-[90%] max-w-xl rounded-[32px] p-6 sm:p-10 relative shadow-2xl scale-95 transition-transform duration-300 flex flex-col max-h-[85vh]"
+                id="lightbox-content">
+
+                <button onclick="closeLightbox()"
+                    class="absolute top-4 left-4 text-gray-400 hover:text-primary transition-colors z-20">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+
+                <div class="overflow-y-auto pr-2 custom-scrollbar text-center mt-4">
+                    <div id="lightbox-icon-container"
+                        class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 shrink-0">
+                        <span id="lightbox-icon" class="material-symbols-outlined text-4xl"></span>
+                    </div>
+
+                    <h3 id="lightbox-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-4"></h3>
+
+                    <div id="lightbox-text"
+                        class="text-gray-600 dark:text-text-secondary text-lg leading-relaxed text-justify px-2 pb-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section
+            class="relative rounded-[48px] overflow-hidden cta-gradient border border-primary/20 p-16 lg:p-24 text-center">
+            <div class="absolute -top-32 -right-32 w-80 h-80 bg-primary/10 rounded-full blur-[100px]"></div>
+            <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-primary/5 rounded-full blur-[100px]"></div>
+            <div class="relative z-10 space-y-10 max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+                    كن جزءاً من رحلتنا في العطاء
+                </h2>
+                <p class="text-xl text-gray-300 dark:text-text-secondary max-w-2xl mx-auto">
+                    انضم إلينا اليوم وساهم في تغيير حياة الكثيرين للأفضل. تبرعك أو تطوعك يصنع الفرق الحقيقي.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
+                    <button
+                        class="w-full sm:w-auto px-12 py-5 bg-primary hover:bg-emerald-700 text-white font-bold rounded-2xl transition-all shadow-xl shadow-primary/30 text-lg">
+                        انضم إلينا كمتطوع
+                    </button>
+                    <button
+                        class="w-full sm:w-auto px-12 py-5 border-2 border-primary/50 text-primary hover:bg-primary hover:text-white font-bold rounded-2xl transition-all text-lg backdrop-blur-sm">
+                        تبرع الآن
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <main-footer></main-footer>
+    <button
+        class="fixed bottom-6 left-6 w-12 h-12 bg-white dark:bg-card-dark border border-slate-200 dark:border-white/10 rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-110 transition-all"
+        id="theme-toggle" onclick="toggleDarkMode()">
+        <span class="material-symbols-outlined dark:hidden" id="theme-toggle-dark-icon">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block text-yellow-400"
+            id="theme-toggle-light-icon">light_mode</span>
+    </button>
+    <script>
+        function openLightbox(title, text, icon) {
+            const lightbox = document.getElementById('lightbox');
+            const content = document.getElementById('lightbox-content');
+            const scrollContainer = lightbox.querySelector('.overflow-y-auto');
+
+            // 1. تعبئة البيانات
+            document.getElementById('lightbox-title').innerText = title;
+            document.getElementById('lightbox-text').innerText = text;
+            document.getElementById('lightbox-icon').innerText = icon;
+
+            // 2. إعادة تصفير السكرول داخل المودال لتبدأ القراءة من الأعلى
+            if (scrollContainer) scrollContainer.scrollTop = 0;
+
+            // 3. إظهار الـ Lightbox
+            // نزيل hidden ونضيف flex فوراً لضمان تمدد الـ backdrop (inset-0) على كامل الشاشة
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+
+            // 4. تشغيل الانيميشن بعد لحظة بسيطة
+            setTimeout(() => {
+                lightbox.classList.add('opacity-100');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+
+            // 5. قفل سكرول الصفحة الرئيسية
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const content = document.getElementById('lightbox-content');
+
+            lightbox.classList.remove('opacity-100');
+            content.classList.add('scale-100');
+
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        }
+
+        // إغلاق عند النقر خارج المحتوى
+        document.getElementById('lightbox').addEventListener('click', function (e) {
+            if (e.target === this) closeLightbox();
+        });
+    </script>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        themeToggleBtn.addEventListener('click', function () {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+        } else {
+            htmlElement.classList.add('dark');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>تأكيد الدفع - جمعية أصدقاء بيرزيت</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <script src="script.js" defer></script>
+    <script src="stor_navbar.js" defer></script>
+    <script src="stor_footer.js" defer></script>
+</head>
+
+<body
+    class="bg-background-lights dark:bg-background-darks text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+    <main-navbar></main-navbar>
+
+    <main class="flex-grow flex items-center justify-center py-16 px-6 relative overflow-hidden">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-primarys/5 to-transparent pointer-events-none">
+        </div>
+
+        <div
+            class="max-w-[560px] w-full bg-white dark:bg-surface-darks border border-slate-200 dark:border-primarys/10 rounded-2xl shadow-xl p-8 md:p-12 text-center relative z-10">
+
+            <div class="mb-8 flex justify-center">
+                <div
+                    class="size-24 rounded-full bg-primarys/10 border border-primarys/20 flex items-center justify-center relative">
+                    <span class="absolute inset-0 rounded-full bg-primarys/20 animate-ping"></span>
+                    <span class="material-symbols-outlined text-primarys text-6xl relative z-10"
+                        style="color: #96194A;">check_circle</span>
+                </div>
+            </div>
+
+            <h1 class="text-3xl md:text-4xl font-black mb-4 leading-tight">تمت عملية الدفع <span class="text-primarys"
+                    style="color: #96194A;">بنجاح!</span></h1>
+            <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-10 opacity-90">
+                شكراً لدعمكم لطلاب جامعة بيرزيت. تم استلام الايصال بنجاح وسوف تساهم في بناء مستقبل تعليمي أفضل.
+            </p>
+
+            <div
+                class="bg-slate-50 dark:bg-background-darks/40 rounded-xl p-6 mb-10 border border-slate-200 dark:border-primarys/10">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center py-2 border-b border-slate-200 dark:border-white/5">
+                        <span class="text-slate-500 dark:text-[#9cbaaf] text-sm font-medium">رقم العملية</span>
+                        <span class="font-mono font-bold text-primarys" style="color: #96194A;">#ORD-77291</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-slate-200 dark:border-white/5">
+                        <span class="text-slate-500 dark:text-[#9cbaaf] text-sm font-medium">المبلغ الإجمالي</span>
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">150.00 NIS</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2">
+                        <span class="text-slate-500 dark:text-[#9cbaaf] text-sm font-medium">التاريخ والوقت</span>
+                        <span class="text-sm font-bold">24 مايو 2024 - 14:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a class="flex-1 bg-primarys hover:bg-primarys/90 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-primarys/20"
+                    style="background-color: #96194A;" href="store.html">
+                    <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                    العودة للمتجر
+                </a>
+                <a class="flex-1 bg-white dark:bg-transparent hover:bg-slate-50 dark:hover:bg-primarys/10 text-slate-700 dark:text-white font-bold py-4 rounded-xl border border-slate-200 dark:border-primarys/20 transition-all flex items-center justify-center gap-2"
+                    href="#">
+                    <span class="material-symbols-outlined text-[20px]">print</span>
+                    تحميل فاتورة الدفع (PDF)
+                </a>
+            </div>
+
+
+        </div>
+    </main>
+
+    <main-footer></main-footer>
+
+    <button
+        class="fixed bottom-6 left-6 w-12 h-12 bg-white dark:bg-surface-darks border border-slate-200 dark:border-primarys/20 rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-110 transition-all"
+        id="theme-toggle">
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block text-yellow-400">light_mode</span>
+    </button>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', function () {
+            htmlElement.classList.toggle('dark');
+            localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+        } else {
+            htmlElement.classList.add('dark');
+        }
+    </script>
+</body>
+
+</html>

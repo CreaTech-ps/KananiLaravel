@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اكتب عنوان الصفحة هنا فقط</title>
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>جمعية أصدقاء جامعة بيرزيت - Friends of Birzeit University Association</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+    <script src="script.js" defer></script>
+
+    <script src="navbar.js" defer></script>
+    <script src="footer.js" defer></script>
+</head>
+
+<body
+    class="bg-bg-light-main dark:bg-bg-dark-main text-text-dark-gray dark:text-slate-200 min-h-screen transition-colors duration-300">
+    <main-navbar></main-navbar>
+
+    <main class="max-w-7xl mx-auto px-6 lg:px-12 xl:px-16 pt-8 pb-20">
+        <nav class="flex items-center text-xs gap-2 text-slate-500 dark:text-slate-400 mb-6">
+            <a class="hover:text-primary transition-colors" href="#">الرئيسية</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_left</span>
+            <span class="text-text-dark-gray dark:text-white font-semibold">أرشيف الأخبار والتقارير</span>
+        </nav>
+        <section
+            class="hero-gradient-news relative w-full h-[280px] rounded-3xl overflow-hidden mb-12 flex flex-col items-center justify-center text-center px-6 shadow-xl border border-white/10">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4">أرشيف الأخبار والتقارير</h1>
+            <p class="text-slate-200 max-w-2xl text-base md:text-lg leading-relaxed">
+                تصفح سجل نشاطاتنا، إنجازاتنا، وتقارير الشفافية التي توثق أثر تبرعاتكم منذ التأسيس ودورنا في دعم مسيرة
+                التعليم.
+            </p>
+        </section>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <aside class="lg:col-span-3 order-2 lg:order-1 lg:sticky lg:top-28">
+                <div
+                    class="bg-white dark:bg-bg-dark-card p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flex items-center gap-2 mb-6 text-primary">
+                        <span class="material-symbols-outlined">filter_list</span>
+                        <h2 class="text-lg font-bold">تصفية النتائج</h2>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">اختر
+                                العام</label>
+                            <select
+                                class="w-full bg-slate-50 dark:bg-bg-dark-main border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary transition-all cursor-pointer text-sm dark:text-slate-300">
+                                <option>2024</option>
+                                <option>2023</option>
+                                <option>2022</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium mb-2 text-slate-600 dark:text-slate-400">الشهر</label>
+                            <select
+                                class="w-full bg-slate-50 dark:bg-bg-dark-main border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary transition-all cursor-pointer text-sm dark:text-slate-300">
+                                <option>كل الأشهر</option>
+                                <option>يناير</option>
+                                <option>فبراير</option>
+                                <option>مارس</option>
+                            </select>
+                        </div>
+                        <button
+                            class="w-full bg-primary hover:brightness-110 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                            تطبيق الفلاتر
+                        </button>
+                    </div>
+                </div>
+            </aside>
+            <section class="lg:col-span-9 order-1 lg:order-2">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                    <div class="flex flex-wrap items-center gap-3">
+                        <span class="text-slate-500 dark:text-slate-400 text-sm font-medium">الفلاتر النشطة:</span>
+                        <div
+                            class="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-xs font-bold border border-primary/20">
+                            <span>عام 2024</span>
+                            <button
+                                class="material-symbols-outlined text-[16px] hover:text-red-500 transition-colors">close</button>
+                        </div>
+                    </div>
+                    <button class="text-sm font-bold text-slate-500 hover:text-primary transition-colors">مسح
+                        الكل</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <article
+                        class="bg-white dark:bg-bg-dark-card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all group flex flex-col">
+                        <div class="relative h-44 overflow-hidden">
+                            <img alt="News"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdEeT6Z3XCmONfbw6Pw608DECPkLk2jGHv3XpMVTIM0BIGrujTAjy2p-ILQFOSLtFzZCKNHMS1BCJebQcjed8gSkDJvAIJKbI8HI-4OLF4h8iyjZttOEZviYntLvVMVK--3aTjKW-pCL9tRTOd4sOhBB9lwwTSACQEIMyTU67jQ5_EtSHgZdFGsDeAu3-6xzAPYsTCoJcUBe1JWdU18h7S7N3V0_4kGim1Osw3ObrAuR-ZmmFwBeNEv3_fb6vOYHDfabPuopal1z8" />
+                            <span
+                                class="absolute top-4 right-4 bg-primary text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">شراكة</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="flex items-center gap-2 text-slate-400 text-[11px] mb-3">
+                                <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                02 يونيو 2024
+                            </div>
+                            <h3
+                                class="text-base font-bold mb-3 leading-tight group-hover:text-primary transition-colors">
+                                توقيع مذكرة تعاون لتوسيع خدماتنا الرقمية</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                وقع المركز اتفاقية استراتيجية مع كبرى شركات التقنية لتطوير أنظمة تتبع ومراقبة الأداء
+                                الأكاديمي للطلاب وتسهيل الوصول للموارد.
+                            </p>
+                            <div
+                                class="flex items-center justify-between mt-auto border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <a class="flex items-center gap-1 text-primary font-bold text-xs hover:translate-x-[-4px] transition-transform"
+                                    href="#">
+                                    اقرأ المزيد
+                                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                                </a>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-lg">share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-white dark:bg-bg-dark-card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all group flex flex-col">
+                        <div class="relative h-44 overflow-hidden">
+                            <img alt="News"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3lqsfVJTmdw6f25SJ48FcTyILw_es-5P90202a52F0WRj5YHwwyz_cUPZpp24-TgSWc5hJNSzUxuJPDMQcNHDtks2V7FH3hjcKyB2iz4QtBrj78C71nvex3hAYzsMXIINi8s5Rzl408A0m2ySy7WweivueQyaxLGytwXqDFTBEDCYu2-xETAQJaewDe75p4m8VS-yqXXBe3aJcfyZrLMcsD85WGf-F3Kgib10c7Q06PCJuwdC52neFoT_gaLMk3GLfKWtfZTvf78" />
+                            <span
+                                class="absolute top-4 right-4 bg-primary text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">تعليم</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="flex items-center gap-2 text-slate-400 text-[11px] mb-3">
+                                <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                28 سبتمبر 2024
+                            </div>
+                            <h3
+                                class="text-base font-bold mb-3 leading-tight group-hover:text-primary transition-colors">
+                                توزيع أجهزة تعليمية لـ 500 طالب متفوق</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                ضمن مبادرة "تعلم للغد"، قمنا بتوزيع أجهزة حاسوب محمولة لدعم الطلاب في المناطق النائية
+                                لمتابعة تعليمهم عن بعد وتطوير مهاراتهم.
+                            </p>
+                            <div
+                                class="flex items-center justify-between mt-auto border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <a class="flex items-center gap-1 text-primary font-bold text-xs hover:translate-x-[-4px] transition-transform"
+                                    href="#">
+                                    اقرأ المزيد
+                                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                                </a>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-lg">share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-white dark:bg-bg-dark-card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all group flex flex-col">
+                        <div class="relative h-44 overflow-hidden">
+                            <img alt="News"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuASyEK62E72YaAkJTUHiY_lDRbTarttxNY8BZTlmD9F0-c1K8qSDOqRpsObGpCpDP61mhSvzqIq9v8b0RW5y4h8PUyGbnYGwVnRB_5bmjU2ttYQecQ4mR_o-h8OMNv16LOR6uro9o9kar9SP67i8ZUj1yo1pxMrd6mwdNpzodTf5nuI8quU41IVl5ffBq5m2dRSO4LOIc_a0OAaKKO_dYR588HijMHGgD1X2A8ydUy2QWU49NT23V4WmxL6QlnbbX69EZFe27bFZPM" />
+                            <span
+                                class="absolute top-4 right-4 bg-primary text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">استدامة</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="flex items-center gap-2 text-slate-400 text-[11px] mb-3">
+                                <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                12 أغسطس 2024
+                            </div>
+                            <h3
+                                class="text-base font-bold mb-3 leading-tight group-hover:text-primary transition-colors">
+                                مشروع الطاقة الشمسية للمراكز الاجتماعية</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                اكتمال المرحلة الأولى من تزويد 10 مراكز تنمية اجتماعية بالطاقة النظيفة لتقليل التكاليف
+                                التشغيلية وضمان استمرارية الخدمة.
+                            </p>
+                            <div
+                                class="flex items-center justify-between mt-auto border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <a class="flex items-center gap-1 text-primary font-bold text-xs hover:translate-x-[-4px] transition-transform"
+                                    href="#">
+                                    اقرأ المزيد
+                                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                                </a>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-lg">share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-white dark:bg-bg-dark-card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all group flex flex-col">
+                        <div class="relative h-44 overflow-hidden">
+                            <img alt="News"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdEeT6Z3XCmONfbw6Pw608DECPkLk2jGHv3XpMVTIM0BIGrujTAjy2p-ILQFOSLtFzZCKNHMS1BCJebQcjed8gSkDJvAIJKbI8HI-4OLF4h8iyjZttOEZviYntLvVMVK--3aTjKW-pCL9tRTOd4sOhBB9lwwTSACQEIMyTU67jQ5_EtSHgZdFGsDeAu3-6xzAPYsTCoJcUBe1JWdU18h7S7N3V0_4kGim1Osw3ObrAuR-ZmmFwBeNEv3_fb6vOYHDfabPuopal1z8" />
+                            <span
+                                class="absolute top-4 right-4 bg-primary text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">شراكة</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="flex items-center gap-2 text-slate-400 text-[11px] mb-3">
+                                <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                05 يوليو 2024
+                            </div>
+                            <h3
+                                class="text-base font-bold mb-3 leading-tight group-hover:text-primary transition-colors">
+                                تعاون جديد مع الجامعات العالمية</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                إطلاق برنامج التبادل الأكاديمي الدولي الذي يتيح لطلابنا فرصة الدراسة والتدريب في أفضل
+                                الجامعات الشريكة حول العالم لتعزيز خبراتهم.
+                            </p>
+                            <div
+                                class="flex items-center justify-between mt-auto border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <a class="flex items-center gap-1 text-primary font-bold text-xs hover:translate-x-[-4px] transition-transform"
+                                    href="#">
+                                    اقرأ المزيد
+                                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                                </a>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-lg">share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-white dark:bg-bg-dark-card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all group flex flex-col">
+                        <div class="relative h-44 overflow-hidden">
+                            <img alt="News"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3lqsfVJTmdw6f25SJ48FcTyILw_es-5P90202a52F0WRj5YHwwyz_cUPZpp24-TgSWc5hJNSzUxuJPDMQcNHDtks2V7FH3hjcKyB2iz4QtBrj78C71nvex3hAYzsMXIINi8s5Rzl408A0m2ySy7WweivueQyaxLGytwXqDFTBEDCYu2-xETAQJaewDe75p4m8VS-yqXXBe3aJcfyZrLMcsD85WGf-F3Kgib10c7Q06PCJuwdC52neFoT_gaLMk3GLfKWtfZTvf78" />
+                            <span
+                                class="absolute top-4 right-4 bg-primary text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">تعليم</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="flex items-center gap-2 text-slate-400 text-[11px] mb-3">
+                                <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                20 أكتوبر 2024
+                            </div>
+                            <h3
+                                class="text-base font-bold mb-3 leading-tight group-hover:text-primary transition-colors">
+                                تكريم أوائل الطلبة في حفل الجمعية السنوي</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                احتفلت الجمعية بتكريم كوكبة من الطلاب المتفوقين تقديراً لجهودهم الأكاديمية الاستثنائية
+                                وتقديم منح دراسية كاملة للمراكز الأولى.
+                            </p>
+                            <div
+                                class="flex items-center justify-between mt-auto border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <a class="flex items-center gap-1 text-primary font-bold text-xs hover:translate-x-[-4px] transition-transform"
+                                    href="#">
+                                    اقرأ المزيد
+                                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                                </a>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-lg">share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <article
+                        class="bg-white dark:bg-bg-dark-card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-xl transition-all group flex flex-col">
+                        <div class="relative h-44 overflow-hidden">
+                            <img alt="News"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuASyEK62E72YaAkJTUHiY_lDRbTarttxNY8BZTlmD9F0-c1K8qSDOqRpsObGpCpDP61mhSvzqIq9v8b0RW5y4h8PUyGbnYGwVnRB_5bmjU2ttYQecQ4mR_o-h8OMNv16LOR6uro9o9kar9SP67i8ZUj1yo1pxMrd6mwdNpzodTf5nuI8quU41IVl5ffBq5m2dRSO4LOIc_a0OAaKKO_dYR588HijMHGgD1X2A8ydUy2QWU49NT23V4WmxL6QlnbbX69EZFe27bFZPM" />
+                            <span
+                                class="absolute top-4 right-4 bg-primary text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">استدامة</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="flex items-center gap-2 text-slate-400 text-[11px] mb-3">
+                                <span class="material-symbols-outlined text-sm">calendar_month</span>
+                                15 نوفمبر 2024
+                            </div>
+                            <h3
+                                class="text-base font-bold mb-3 leading-tight group-hover:text-primary transition-colors">
+                                إطلاق حملة التشجير في الحرم الجامعي</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                بالتعاون مع طلاب كلية الزراعة، تم زراعة 200 شتلة مثمرة ضمن خطة التحول نحو الحرم الجامعي
+                                الأخضر والمستدام بيئياً.
+                            </p>
+                            <div
+                                class="flex items-center justify-between mt-auto border-t border-slate-100 dark:border-slate-800/50 pt-4">
+                                <a class="flex items-center gap-1 text-primary font-bold text-xs hover:translate-x-[-4px] transition-transform"
+                                    href="#">
+                                    اقرأ المزيد
+                                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                                </a>
+                                <button class="text-slate-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-lg">share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <nav class="flex justify-center items-center gap-3 mt-16">
+                    <button
+                        class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 transition-colors">
+                        <span class="material-symbols-outlined text-lg">chevron_right</span>
+                    </button>
+                    <button
+                        class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white font-bold shadow-lg shadow-primary/30 text-sm">1</button>
+                    <button
+                        class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold transition-colors text-sm">2</button>
+                    <button
+                        class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold transition-colors text-sm">3</button>
+                    <span class="text-slate-400 mx-1">...</span>
+                    <button
+                        class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold transition-colors text-sm">12</button>
+                    <button
+                        class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 transition-colors">
+                        <span class="material-symbols-outlined text-lg">chevron_left</span>
+                    </button>
+                </nav>
+            </section>
+        </div>
+    </main>
+
+    <main-footer></main-footer>
+    <button
+        class="fixed bottom-6 left-6 w-12 h-12 bg-white dark:bg-card-dark border border-slate-200 dark:border-white/10 rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-110 transition-all"
+        id="theme-toggle" onclick="toggleDarkMode()">
+        <span class="material-symbols-outlined dark:hidden" id="theme-toggle-dark-icon">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block text-yellow-400"
+            id="theme-toggle-light-icon">light_mode</span>
+    </button>
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        themeToggleBtn.addEventListener('click', function () {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+        } else {
+            htmlElement.classList.add('dark');
+        }
+    </script>
+
+</body>
+
+</html>

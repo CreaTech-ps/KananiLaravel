@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'page_title' => 'Parasols Project - Advertising Spaces',
+    'badge' => 'Sustainable charitable initiative',
+    'hero_title' => 'Parasols Project: Shade and Giving',
+    'hero_subtitle' => 'We combine the appeal of advertising with the impact of charitable work, providing premium advertising spaces that serve the community and shape a better future, with the revenue of every ad going to support students.',
+    'cta_primary' => 'Discover Spaces',
+    'cta_secondary' => 'How does the project work?',
+    'stat1_label' => 'Active parasols',
+    'stat2_label' => 'Beneficiary students',
+    'stat3_label' => 'Major cities',
+    'stat4_label' => 'Occupancy rate',
+    'section_title' => 'Spaces available on campus',
+    'spaces_available' => ':count premium spaces available for booking now',
+    'filter_all' => 'All',
+    'explore_all' => 'Explore all spaces',
+    'status_available' => 'Available for booking',
+    'status_newly_booked' => 'New',
+    'status_ending_soon' => 'Ending soon',
+    'per_month' => 'month',
+    'advertiser_label' => 'Advertiser',
+    'no_spaces' => 'No spaces displayed at the moment',
+    'cta_title' => 'Want to book your advertising space?',
+    'cta_subtitle' => 'Partner with us in supporting student education by investing your advertising space. All revenue from this project goes to scholarships and student aid.',
+    'cta_contact' => 'Contact us now',
+    'cta_pdf' => 'Download project file (PDF)',
+];

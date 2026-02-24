@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>إتمام الشراء - جمعية أصدقاء جامعة بيرزيت</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+
+    <script src="script.js" defer></script>
+    <script src="stor_navbar.js" defer></script>
+    <script src="stor_footer.js" defer></script>
+</head>
+
+<body
+    class="bg-background-lights dark:bg-background-darks text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen">
+
+    <main-navbar></main-navbar>
+
+    <main class="max-w-[1240px] mx-auto px-6 py-12">
+        <div class="mb-14 relative">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primarys/10 text-primarys border border-primarys/20 mb-4 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-primarys animate-pulse"></span>
+                <span class="text-[10px] font-bold uppercase tracking-widest">سلة المشتريات</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black mb-4 leading-tight">إتمام عملية <span
+                    class="text-primarys">الشراء</span></h2>
+            <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl leading-relaxed">يرجى مراجعة طلبك وإدخال
+                بيانات الشحن والدفع لإتمام العملية.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div class="lg:col-span-8 space-y-8">
+                <div
+                    class="bg-white dark:bg-surface-darks border border-slate-200 dark:border-primarys/10 rounded-2xl p-8 shadow-sm">
+                    <h3 class="text-xl font-bold mb-8 flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primarys">local_shipping</span>
+                        تفاصيل الشحن والتسليم
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold opacity-70">الاسم الكامل للمشتري</label>
+                            <input type="text" placeholder="أدخل اسمك الثلاثي"
+                                class="w-full bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys focus:border-primarys transition-all p-3">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold opacity-70">الدولة</label>
+                            <select
+                                class="w-full bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys focus:border-primarys transition-all p-3 appearance-none">
+                                <option value="PS">فلسطين</option>
+                                <option value="JO">الأردن</option>
+                                <option value="AE">الإمارات</option>
+                                <option value="SA">السعودية</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold opacity-70">رقم الهاتف</label>
+                            <div class="flex gap-2" dir="ltr">
+                                <select
+                                    class="w-24 bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys">
+                                    <option value="+970">+970</option>
+                                    <option value="+972">+972</option>
+                                    <option value="+962">+962</option>
+                                    <option value="+966">+966</option>
+                                </select>
+                                <input type="tel" placeholder="599 000 000"
+                                    class="flex-1 bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold opacity-70">وقت التسليم المفضل (أقرب موعد متاح: <span
+                                    id="min-date-label" class="text-primarys"></span>)</label>
+                            <input type="date" id="delivery-date"
+                                class="w-full bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys focus:border-primarys transition-all p-3 text-right">
+                        </div>
+
+                        <div class="md:col-span-2 space-y-2">
+                            <label class="text-sm font-bold opacity-70">العنوان بالتفصيل</label>
+                            <input type="text" placeholder="المدينة، الحي، الشارع، أقرب معلم"
+                                class="w-full bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys focus:border-primarys transition-all p-3">
+                        </div>
+
+                        <div class="md:col-span-2 py-4 border-t border-slate-100 dark:border-primarys/5 mt-4">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="receiver-toggle" checked class="sr-only peer">
+                                <div
+                                    class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primarys">
+                                </div>
+                                <span class="ms-3 text-sm font-bold">المستلم هو نفسه المشتري</span>
+                            </label>
+                        </div>
+
+                        <div id="receiver-details"
+                            class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 hidden animate-fadeIn">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold opacity-70">اسم المستلم</label>
+                                <input type="text" placeholder="اسم الشخص الذي سيتسلم الطلب"
+                                    class="w-full bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys focus:border-primarys p-3">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold opacity-70">رقم الهاتف</label>
+                                <div class="flex gap-2" dir="ltr">
+                                    <select
+                                        class="w-24 bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys">
+                                        <option value="+970">+970</option>
+                                        <option value="+972">+972</option>
+                                        <option value="+962">+962</option>
+                                        <option value="+966">+966</option>
+                                    </select>
+                                    <input type="tel" placeholder="599 000 000"
+                                        class="flex-1 bg-transparent border-slate-200 dark:border-primarys/10 rounded-xl focus:ring-primarys">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-10px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                .animate-fadeIn {
+                    animation: fadeIn 0.3s ease-out;
+                }
+            </style>
+            <aside class="lg:col-span-4">
+                <div class="sticky top-28 space-y-6">
+                    <div
+                        class="bg-white dark:bg-surface-darks border border-slate-200 dark:border-primarys/10 rounded-2xl p-6 shadow-sm">
+                        <h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primarys">receipt_long</span>
+                            ملخص الطلب
+                        </h3>
+
+                        <div class="space-y-4 mb-6">
+                            <div class="flex gap-4 items-center">
+                                <div
+                                    class="size-16 rounded-lg bg-slate-100 dark:bg-primarys/5 overflow-hidden shrink-0 border border-primarys/10">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3siGEPlzqDyib7iINcIYj5JjlRcLpN5wBc40HLehkLKGgQEEZvq2G5gYLlzeeDyWqsPHpgRm4b6_CEwYVP0vXjOTVsiHOEPr0A6r-3Hef2KiAlOXRGLzawk6W8fIsNrzacNF94AynB1yDXZqYN4aUjf3mNKcuRyXN9nLjA7hOeEUwwPDwuf1P0_ogJjeGRRcdGPKTIB_JI7foVbMXrcVSfVCpn4rbn6lSdWIL6CYIxprl1bOGjHpYkEoNWGgKGZz927b_-YRrfF4"
+                                        class="w-full h-full object-cover" alt="Product">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold line-clamp-1">شال كنعاني فاخر</h4>
+                                    <p class="text-xs text-slate-500">الكمية: 1</p>
+                                </div>
+                                <span class="text-sm font-bold text-primarys">٤٥٠ NIS</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 pt-6 border-t border-slate-200 dark:border-primarys/10">
+                            <div class="flex justify-between text-sm">
+                                <span class="opacity-60">المجموع الفرعي</span>
+                                <span class="font-medium">٤٥٠ NIS</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="opacity-60">تكلفة الشحن</span>
+                                <span class="font-medium text-green-500">مجاني</span>
+                            </div>
+                            <div
+                                class="flex justify-between text-xl font-black pt-3 border-t border-dashed border-slate-200 dark:border-primarys/10">
+                                <span>الإجمالي</span>
+                                <span class="text-primarys">٤٥٠ NIS</span>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full mt-8 bg-primarys hover:opacity-90 text-white py-4 rounded-xl font-black transition-all flex items-center justify-center gap-2 shadow-lg shadow-primarys/20">
+                            <span class="material-symbols-outlined">verified_user</span>
+                            تأكيد طلب الشراء
+                        </button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <main-footer></main-footer>
+
+    <button
+        class="fixed bottom-6 left-6 w-12 h-12 bg-white dark:bg-surface-darks border border-slate-200 dark:border-white/10 rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-110 transition-all"
+        id="theme-toggle">
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block text-yellow-400">light_mode</span>
+    </button>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+        } else {
+            htmlElement.classList.add('dark');
+        }
+    </script>
+</body>
+
+</html>

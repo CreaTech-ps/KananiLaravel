@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'page_title' => 'Success Partners',
+    'badge' => 'Pride in partnership and cooperation',
+    'hero_title' => 'Success partners in',
+    'hero_title_highlight' => 'our journey',
+    'hero_subtitle' => 'We are proud of a select group of individuals and institutions who have made our mission possible. Your support is not just a contribution—it is a life-changing investment that creates new opportunities for our children\'s future.',
+    'cta_become' => 'Become a partner',
+    'cta_report' => 'View impact report',
+    'stat1_label' => 'Total partners',
+    'stat2_label' => 'Beneficiary students',
+    'stat3_label' => 'Funded projects',
+    'stat4_label' => 'Partnership growth',
+    'section_title' => 'Partners of change',
+    'section_subtitle' => 'Leading institutions and companies that help shape the future of education with us.',
+    'filter_company' => 'Corporate partners',
+    'filter_individual' => 'Individual supporters',
+    'role_company' => 'Strategic partner',
+    'role_individual' => 'Individual supporter',
+    'no_partners' => 'No partners in this category at the moment',
+    'cta_title' => 'Want to be part of our journey?',
+    'cta_subtitle' => 'We believe that strength lies in unity. Join our partner network today and help put a smile on thousands of faces.',
+    'cta_policy_pdf' => 'Partnership policy (PDF)',
+    'cta_whatsapp' => 'Talk to our team',
+];
