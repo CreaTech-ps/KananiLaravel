@@ -217,10 +217,10 @@
     @stack('styles')
     @yield('styles')
 </head>
-<body class="bg-background-lights dark:bg-background-darks text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body class="flex flex-col min-h-screen bg-background-lights dark:bg-background-darks text-slate-900 dark:text-slate-100 transition-colors duration-300">
     @include('store.partials.navbar')
 
-    <main>
+    <main class="flex-1">
         @yield('content')
     </main>
 

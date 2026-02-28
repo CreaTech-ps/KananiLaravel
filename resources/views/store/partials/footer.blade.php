@@ -1,6 +1,6 @@
 @php $mainUrl = rtrim(config('app.main_site_url', 'https://bzufa.com'), '/'); @endphp
-<footer class="bg-white dark:bg-background-darks border-t border-slate-100 dark:border-primarys/10 pt-16 pb-8">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+<footer class="w-full mt-auto bg-white dark:bg-background-darks border-t border-slate-100 dark:border-primarys/10 pt-16 pb-8">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 mb-16">
             <div class="flex flex-col items-center text-center sm:text-start">
                 <a href="{{ $mainUrl }}/" class="mb-6 block transition-transform hover:scale-105">
